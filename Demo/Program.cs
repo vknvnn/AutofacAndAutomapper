@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Autofac;
 using AutoMapper;
 using AutoMapper.Mappers;
+using Demo.Extention;
 using Demo.Models;
 
 namespace Demo
@@ -26,7 +27,7 @@ namespace Demo
                 //map new object 
                 var customer = mapper.Map<Customer>(customerModel);
 
-                customer2 = mapper.Map(customerModel2, customer2);
+                customer2 = mapper.MapPropertiesToInstance(customerModel2, customer2);
             }
         }
 
