@@ -21,8 +21,12 @@ namespace Demo
             {
                 var mapper = scope.Resolve<IMappingEngine>();
                 var customerModel = new CustomerModel {Id = 1, Name = "Nghiep Vo"};
+                var customerModel2 = new CustomerModel { Id = 1, Name = "Nghia Vo" };
+                var customer2 = new Customer {Id = 2, Name = ""};
+                //map new object 
                 var customer = mapper.Map<Customer>(customerModel);
 
+                customer2 = mapper.Map(customerModel2, customer2);
             }
         }
 

@@ -18,7 +18,9 @@ namespace Demo.Models
         protected override void Configure()
         {
             base.Configure();
-            this.CreateMap<CustomerModel, Customer>().AfterMap((s, d) =>
+            this.CreateMap<CustomerModel, Customer>()
+                .ForMember(o=>o.Name, o=>o.Ignore())
+                .AfterMap((s, d) =>
             {
                 d.Name = _customerService.GetNameRandom();
             });
